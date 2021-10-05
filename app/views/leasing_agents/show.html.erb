@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @leasing_agent.name %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @leasing_agent.phone_number %>
+</p>
+
+<%= link_to 'Edit', edit_leasing_agent_path(@leasing_agent) %> |
+<%= link_to 'Back', leasing_agents_path %>

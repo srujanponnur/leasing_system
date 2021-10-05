@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  address: MyString
+  size: 1
+  terms_available: 1
+  earliest_start_date: 2021-09-20
+  application_fee: 1
+  monthly_rent: 1
+
+two:
+  name: MyString
+  address: MyString
+  size: 1
+  terms_available: 1
+  earliest_start_date: 2021-09-20
+  application_fee: 1
+  monthly_rent: 1

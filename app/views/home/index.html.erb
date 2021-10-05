@@ -1,0 +1,22 @@
+<p id=”notice”><%= notice %></p>
+<h1>Generic Property Management</h1>
+<p>Lease property at the snap of your finger</p>
+
+<%if current_user %>
+  Currently logged in as:  <strong><%=current_user.user_type %></strong>
+  </br></br>
+  <%= link_to "All Properties", properties_path %>
+  <% if current_user.user_type == "applicant" %>
+    <%= link_to "My Applications", applications_path %>
+  <% else %>
+    <%= link_to "All Applications", applications_path %>
+  <% end %>
+  <% if current_user.user_type == "admin" %>
+    <%= link_to "See All Leasing Agent", leasing_agents_path %>
+    <%= link_to "All Applicants", applicants_path %>
+  <% end %>
+<% else %>
+  <%= link_to "Applicant Signup", signup_path %> or
+  <%= link_to "Login", login_path %>
+<% end %>
+

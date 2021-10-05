@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Are pets allowed:</strong>
+  <%= @property_feature.are_pets_allowed %>
+</p>
+
+<p>
+  <strong>In unit laundry:</strong>
+  <%= @property_feature.in_unit_laundry %>
+</p>
+
+<p>
+  <strong>Parking:</strong>
+  <%= @property_feature.parking %>
+</p>
+
+<%= link_to 'Edit', edit_property_feature_path(@property_feature) %> |
+<%= link_to 'Back', property_features_path %>

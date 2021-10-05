@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Property Features</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Are pets allowed</th>
+      <th>In unit laundry</th>
+      <th>Parking</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @property_features.each do |property_feature| %>
+      <tr>
+        <td><%= property_feature.are_pets_allowed %></td>
+        <td><%= property_feature.in_unit_laundry %></td>
+        <td><%= property_feature.parking %></td>
+        <td><%= link_to 'Show', property_feature %></td>
+        <td><%= link_to 'Edit', edit_property_feature_path(property_feature) %></td>
+        <td><%= link_to 'Destroy', property_feature, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Property Feature', new_property_feature_path %>

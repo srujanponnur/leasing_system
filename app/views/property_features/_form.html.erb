@@ -1,0 +1,32 @@
+<%= form_with(model: property_feature) do |form| %>
+  <% if property_feature.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(property_feature.errors.count, "error") %> prohibited this property_feature from being saved:</h2>
+
+      <ul>
+        <% property_feature.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :are_pets_allowed %>
+    <%= form.check_box :are_pets_allowed %>
+  </div>
+
+  <div class="field">
+    <%= form.label :in_unit_laundry %>
+    <%= form.check_box :in_unit_laundry %>
+  </div>
+
+  <div class="field">
+    <%= form.label :parking %>
+    <%= form.check_box :parking %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

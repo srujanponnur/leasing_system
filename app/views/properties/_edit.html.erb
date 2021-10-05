@@ -1,0 +1,78 @@
+<%= form_with(model: property, local:true) do |form| %>
+  <% if property.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(property.errors.count, "error") %> prohibited this property from being saved:</h2>
+
+      <ul>
+        <% property.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, :required => true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address, :required => true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :size %>
+    <%= form.number_field :size, min: 0, :required => true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :units %>
+    <%= form.number_field :units, min: 0, :required => true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :terms_available %>
+    <%= form.number_field :terms_available, min: 0, :required => true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :earliest_start_date %>
+    <%= form.date_select :earliest_start_date, :required => true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :application_fee %>
+    <%= form.number_field :application_fee, :required => true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :monthly_rent %>
+    <%= form.number_field :monthly_rent, :required => true %>
+  </div>
+
+
+    <div class="field">
+      <%= form.check_box( :are_pets_allowed , {checked: @property_feature.are_pets_allowed || false}, true, false) %>
+      <%= form.label :are_pets_allowed , 'are pets allowed?'%>
+    </div>
+
+    <div class="field">
+      <%= form.check_box( :in_unit_laundry , {checked: @property_feature.in_unit_laundry || false}, true, false) %>
+      <%= form.label :in_unit_laundry , 'unit laundry?'%>
+    </div>
+
+    <div class="field">
+      <%= form.check_box( :parking , {checked: (@property_feature.parking || false)}, true, false) %>
+      <%= form.label :parking, "parking?" %>
+    </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+
+<% end %>
+
+
+
+

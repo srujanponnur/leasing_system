@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: messi@gmail.com
+  password_digest: MyString
+  name: MyString
+  phonenumber: MyString
+  user_id: 1
+
+two:
+  email: ronaldo@gmail.com
+  password_digest: MyString
+  name: MyString
+  phonenumber: MyString
+  user_id: 2

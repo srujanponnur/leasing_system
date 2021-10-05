@@ -1,0 +1,75 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @property.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @property.address %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @property.size %>
+</p>
+
+<p>
+  <strong>Units:</strong>
+  <%= @property.units %>
+</p>
+
+<p>
+  <strong>Terms available:</strong>
+  <%= @property.terms_available %>
+</p>
+
+<p>
+  <strong>Earliest start date:</strong>
+  <%= @property.earliest_start_date %>
+</p>
+
+<p>
+  <strong>Application fee:</strong>
+  <%= @property.application_fee %>
+</p>
+
+<p>
+  <strong>Monthly rent:</strong>
+  <%= @property.monthly_rent %>
+</p>
+
+<p>
+  <strong>are pets allowed?</strong> <%= @property_feature.are_pets_allowed || false %>
+</p>
+
+<p>
+  <strong>unit laundry?</strong> <%= @property_feature.in_unit_laundry || false %>
+</p>
+
+<p>
+  <strong>parking?</strong> <%= @property_feature.parking || false %>
+</p>
+
+<% if current_user.user_type != 'applicant' %>
+  <p>
+    <strong>Occupants</strong>
+    <% if @applicants %>
+      <% @applicants.each do |applicant| %>
+        <tr>
+          <td><%= applicant.name %></td>
+          <td><%= link_to 'Check Out', checkout_path(@property, :data => {:applicant_id => applicant.id}) , method: :post %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </p>
+<% end %>
+
+<% if current_user.user_type == 'admin' %>
+  <%= link_to 'Apply', apply_path,  method: :post %>
+<% elsif current_user.user_type == 'applicant'%>
+  <%= link_to 'Apply', applications_path(:data => {:property => @property}),  method: :post %>
+<% end %>
+<%= link_to 'Edit', edit_property_path(@property) %> |
+<%= link_to 'Back', properties_path %>

@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Leasing Agents</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone number</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @leasing_agents.each do |leasing_agent| %>
+      <tr>
+        <td><%= leasing_agent.name %></td>
+        <td><%= leasing_agent.phone_number %></td>
+        <td><%= link_to 'Show', leasing_agent %></td>
+        <td><%= link_to 'Edit', edit_leasing_agent_path(leasing_agent) %></td>
+        <td><%= link_to 'Destroy', leasing_agent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Leasing Agent', new_leasing_agent_path %>
+<%= link_to 'Back', root_path %>
